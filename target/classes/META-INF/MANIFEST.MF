@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: mounicareddy
+Build-Jdk: 15.0.1
+Implementation-Title: Doc360-upload-Microservice
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: com.optum.doc360
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/Doc360-upload-Microservice
+Created-By: Maven Integration for Eclipse
+

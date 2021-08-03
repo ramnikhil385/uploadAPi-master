@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="true">
+
+	<property name="LOG_FILE" value="/upload/logs" />
+
+	<springProfile name="default">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>localHost</host>
+			<index>cba_doc360</index>
+			<url>https://npe-hec-splunk.optum.com</url>
+			<token>d0d6fe19-79da-4480-b10b-f02b0c599671</token>
+			<source>splunkLocal</source>
+			<sourcetype>doc360_rest:upload_local_elr:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<springProfile name="local">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>localHost</host>
+			<index>cba_doc360</index>
+			<url>https://npe-hec-splunk.optum.com</url>
+			<token>d0d6fe19-79da-4480-b10b-f02b0c599671</token>
+			<source>splunkLocal</source>
+			<sourcetype>doc360_rest:upload_local_elr:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<springProfile name="dev">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>${HOSTNAME}</host>
+			<index>cba_doc360</index>
+			<url>https://npe-hec-splunk.optum.com</url>
+			<token>d0d6fe19-79da-4480-b10b-f02b0c599671</token>
+			<source>splunkDev</source>
+			<sourcetype>doc360_rest:upload_dev_elr:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<springProfile name="sys">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>${HOSTNAME}</host>
+			<index>cba_doc360</index>
+			<url>https://npe-hec-splunk.optum.com</url>
+			<token>d0d6fe19-79da-4480-b10b-f02b0c599671</token>
+			<source>splunkSys</source>
+			<sourcetype>doc360_rest:upload_sys_elr:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<springProfile name="uat">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>${HOSTNAME}</host>
+			<index>cba_doc360</index>
+			<url>https://npe-hec-splunk.optum.com</url>
+			<token>d0d6fe19-79da-4480-b10b-f02b0c599671</token>
+			<source>splunkUAT</source>
+			<sourcetype>doc360_rest:upload_uat_elr:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<springProfile name="stage">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>${HOSTNAME}</host>
+			<index>cba_doc360</index>
+			<url>https://npe-hec-splunk.optum.com</url>
+			<token>d0d6fe19-79da-4480-b10b-f02b0c599671</token>
+			<source>splunkStage</source>
+			<sourcetype>doc360_rest:upload_stage_elr:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<springProfile name="int">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>${HOSTNAME}</host>
+			<index>cba_doc360</index>
+			<url>https://npe-hec-splunk.optum.com</url>
+			<token>d0d6fe19-79da-4480-b10b-f02b0c599671</token>
+			<source>splunkInt</source>
+			<sourcetype>doc360_rest:upload_int_elr:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<springProfile name="prod">
+		<appender name="httpAppender"
+			class="com.splunk.logging.HttpEventCollectorLogbackAppender">
+			<host>${HOSTNAME}</host>
+			<index>cba_doc360</index>
+			<url>https://hec-splunk.optum.com</url>
+			<token>047bf34f-c931-4ede-a977-340c791fc97d</token>
+			<source>splunkProd</source>
+			<sourcetype>doc360_rest:upload_prod_ctc:doc360_rest
+			</sourcetype>
+			<messageFormat>text</messageFormat>
+			<middleware>HttpEventCollectorUnitTestMiddleware</middleware>
+			<disableCertificateValidation>true</disableCertificateValidation>
+			<layout class="ch.qos.logback.classic.PatternLayout">
+				<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+					DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			</layout>
+		</appender>
+	</springProfile>
+
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+				DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			<outputPatternAsHeader>true</outputPatternAsHeader>
+		</encoder>
+	</appender>
+
+	<appender name="rollingFileApender"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!--See also http://logback.qos.ch/manual/appenders.html#RollingFileAppender -->
+		<File>${LOG_FILE}/doc360-upload-doc-api.${HOSTNAME}.log</File>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} [%thread] ${HOSTNAME}
+				DOC360-UPLOAD-DOC-API %-5p %c{1}:%L - %m%n</pattern>
+			<outputPatternAsHeader>true</outputPatternAsHeader>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<maxHistory>100</maxHistory>
+			<fileNamePattern>${LOG_FILE}/doc360-upload-doc-api.${HOSTNAME}.%d{yyyy-MM-dd}.%i.log
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 500MB -->
+				<maxFileSize>50MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+		</rollingPolicy>
+	</appender>
+
+
+	<logger name="com.optum.doc360" level="DEBUG" additivity="false">
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileApender" />
+		<appender-ref ref="httpAppender" />
+	</logger>
+	<logger name="org.springframework" level="INFO" additivity="false">
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileApender" />
+		<appender-ref ref="httpAppender" />
+	</logger>
+	<logger name="org.hibernate" level="WARN" additivity="false">
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileApender" />
+		<appender-ref ref="httpAppender" />
+	</logger>
+	<logger name="com.zaxxer.hikari" level="WARN" additivity="false">
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileApender" />
+		<appender-ref ref="httpAppender" />
+	</logger>
+	<logger name="com.ulisesbocchio" level="WARN" additivity="false">
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileApender" />
+		<appender-ref ref="httpAppender" />
+	</logger>
+	<root level="INFO" additivity="false">
+		<appender-ref ref="consoleAppender" />
+		<appender-ref ref="rollingFileApender" />
+		<appender-ref ref="httpAppender" />
+	</root>
+
+</configuration>
